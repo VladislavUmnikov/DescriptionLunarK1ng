@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Влад — свой ритм тишины</title>
+<meta name="description" content="Личная страница-визитка. О тишине, своём ритме и о том, что помогает быть на связи.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Перейти к основному содержанию</a>
+
+<header class="hero" id="hero">
+  <div class="hero__field" aria-hidden="true">
+    <svg class="hero__star" viewBox="0 0 200 200" aria-hidden="true">
+      <defs>
+        <radialGradient id="starGlow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="var(--star-core)" stop-opacity="0.95"/>
+          <stop offset="45%" stop-color="var(--accent-gold)" stop-opacity="0.35"/>
+          <stop offset="100%" stop-color="var(--accent-gold)" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+      <circle class="hero__glow" cx="100" cy="100" r="90" fill="url(#starGlow)"/>
+      <circle class="hero__core" cx="100" cy="100" r="6" fill="var(--star-core)"/>
+    </svg>
+  </div>
+
+  <div class="hero__content">
+    <h1 class="hero__title" id="heroTitle">Свой ритм тишины</h1>
+    <p class="hero__subtitle">Страница о том, как я слышу мир — и как остаюсь с ним на связи.</p>
+  </div>
+
+  <a class="hero__scroll-cue" href="#about" aria-label="Перейти к разделу «Обо мне»">
+    <span class="hero__scroll-line" aria-hidden="true"></span>
+  </a>
+</header>
+
+<main id="main">
+
+  <section class="section about" id="about" aria-labelledby="aboutTitle">
+    <div class="section__inner">
+      <h2 class="section__title" id="aboutTitle">Обо мне</h2>
+      <div class="about__text">
+        <p class="reveal-line">Тишина для меня — не пустота, а привычная часть дня. В ней есть своя структура: она не мешает думать, работать руками, собирать что-то по частям и доводить до готового результата.</p>
+        <p class="reveal-line">Я слабослышащий человек, и речь на слух мне даётся тяжело — особенно там, где голоса накладываются друг на друга, звучат издалека или тонут в фоновом шуме. Это не история про «не повезло», а просто то, как устроено моё восприятие.</p>
+        <p class="reveal-line">Поэтому я больше доверяю тому, что можно увидеть: тексту, субтитрам, написанным словам. Читать по губам я тоже умею, но это требует хорошего освещения и прямого взгляда — и я не стесняюсь просить об этом.</p>
+        <p class="reveal-line">Если нам нужно что-то обсудить — пишите. Так разговор получается точнее и спокойнее для нас обоих.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section help" id="help" aria-labelledby="helpTitle">
+    <div class="section__inner">
+      <h2 class="section__title" id="helpTitle">Что мне помогает</h2>
+      <ul class="help__list">
+        <li class="help__item">
+          <svg class="help__orbit" viewBox="0 0 40 40" aria-hidden="true">
+            <circle class="help__orbit-path" cx="20" cy="20" r="16"/>
+          </svg>
+          <span>Текст вместо звука — сообщения, письма, заметки</span>
+        </li>
+        <li class="help__item">
+          <svg class="help__orbit" viewBox="0 0 40 40" aria-hidden="true">
+            <circle class="help__orbit-path" cx="20" cy="20" r="16"/>
+          </svg>
+          <span>Субтитры и расшифровки в видео и звонках</span>
+        </li>
+        <li class="help__item">
+          <svg class="help__orbit" viewBox="0 0 40 40" aria-hidden="true">
+            <circle class="help__orbit-path" cx="20" cy="20" r="16"/>
+          </svg>
+          <span>Хорошее освещение и взгляд собеседника — так проще читать по губам</span>
+        </li>
+        <li class="help__item">
+          <svg class="help__orbit" viewBox="0 0 40 40" aria-hidden="true">
+            <circle class="help__orbit-path" cx="20" cy="20" r="16"/>
+          </svg>
+          <span>Время без спешки, чтобы переспросить и уточнить</span>
+        </li>
+        <li class="help__item">
+          <svg class="help__orbit" viewBox="0 0 40 40" aria-hidden="true">
+            <circle class="help__orbit-path" cx="20" cy="20" r="16"/>
+          </svg>
+          <span>Письменное общение вместо звонков, когда это возможно</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section contact" id="contact" aria-labelledby="contactTitle">
+    <div class="contact__field" aria-hidden="true"></div>
+    <div class="section__inner">
+      <h2 class="section__title" id="contactTitle">Контакты</h2>
+      <p class="contact__lead">Пишите — это самый надёжный способ до меня достучаться.</p>
+      <ul class="contact__list">
+        <li>
+          <a class="contact__link" href="mailto:you@example.com">you@example.com</a>
+        </li>
+        <li>
+          <a class="contact__link" href="https://t.me/your_username" aria-label="Telegram: your_username">Telegram — @your_username</a>
+        </li>
+        <li>
+          <a class="contact__link" href="https://github.com/your-username" aria-label="GitHub: your-username">GitHub — your-username</a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p class="footer__text">Влад · страница обновляется без спешки</p>
+</footer>
+
+<script type="module" src="main.js"></script>
+</body>
+</html>
