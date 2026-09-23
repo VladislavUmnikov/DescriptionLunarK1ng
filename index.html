@@ -2,119 +2,252 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Влад — свой ритм тишины</title>
-<meta name="description" content="Личная страница-визитка. О тишине, своём ритме и о том, что помогает быть на связи.">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Как со мной общаться — digital ID</title>
+<meta name="description" content="Личная digital-визитка: я слабослышащий, использую кохлеарный имплант Cochlear Nucleus 7. Коротко о том, как со мной общаться.">
+<meta name="theme-color" content="#060a12">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
+<canvas id="bgfield" class="bgfield" aria-hidden="true"></canvas>
+
 <a class="skip-link" href="#main">Перейти к основному содержанию</a>
-
-<header class="hero" id="hero">
-  <div class="hero__field" aria-hidden="true">
-    <svg class="hero__star" viewBox="0 0 200 200" aria-hidden="true">
-      <defs>
-        <radialGradient id="starGlow" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stop-color="var(--star-core)" stop-opacity="0.95"/>
-          <stop offset="45%" stop-color="var(--accent-gold)" stop-opacity="0.35"/>
-          <stop offset="100%" stop-color="var(--accent-gold)" stop-opacity="0"/>
-        </radialGradient>
-      </defs>
-      <circle class="hero__glow" cx="100" cy="100" r="90" fill="url(#starGlow)"/>
-      <circle class="hero__core" cx="100" cy="100" r="6" fill="var(--star-core)"/>
-    </svg>
-  </div>
-
-  <div class="hero__content">
-    <h1 class="hero__title" id="heroTitle">Свой ритм тишины</h1>
-    <p class="hero__subtitle">Страница о том, как я слышу мир — и как остаюсь с ним на связи.</p>
-  </div>
-
-  <a class="hero__scroll-cue" href="#about" aria-label="Перейти к разделу «Обо мне»">
-    <span class="hero__scroll-line" aria-hidden="true"></span>
-  </a>
-</header>
 
 <main id="main">
 
-  <section class="section about" id="about" aria-labelledby="aboutTitle">
-    <div class="section__inner">
-      <h2 class="section__title" id="aboutTitle">Обо мне</h2>
-      <div class="about__text">
-        <p class="reveal-line">Тишина для меня — не пустота, а привычная часть дня. В ней есть своя структура: она не мешает думать, работать руками, собирать что-то по частям и доводить до готового результата.</p>
-        <p class="reveal-line">Я слабослышащий человек, и речь на слух мне даётся тяжело — особенно там, где голоса накладываются друг на друга, звучат издалека или тонут в фоновом шуме. Это не история про «не повезло», а просто то, как устроено моё восприятие.</p>
-        <p class="reveal-line">Поэтому я больше доверяю тому, что можно увидеть: тексту, субтитрам, написанным словам. Читать по губам я тоже умею, но это требует хорошего освещения и прямого взгляда — и я не стесняюсь просить об этом.</p>
-        <p class="reveal-line">Если нам нужно что-то обсудить — пишите. Так разговор получается точнее и спокойнее для нас обоих.</p>
+  <!-- 1. HERO -->
+  <header class="hero" id="hero">
+    <div class="hero__top">
+      <figure class="photo photo--portrait" id="portraitPhoto">
+        <img src="photo-portrait.jpg" alt="" loading="eager"
+             onerror="this.closest('.photo').classList.add('is-missing')">
+        <div class="photo__placeholder" aria-hidden="true">
+          <span class="photo__placeholder-icon">🙂</span>
+        </div>
+      </figure>
+    </div>
+
+    <h1 class="hero__title">Я слабослышащий.</h1>
+
+    <p class="hero__lead">
+      Я полностью потерял слух с рождения. С 3 лет использую кохлеарный имплант
+      <strong>Cochlear&nbsp;Nucleus&nbsp;7</strong>.
+    </p>
+
+    <div class="waveform waveform--hero" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+    </div>
+
+    <p class="hero__note">Если я иногда не отвечаю — возможно, я просто не услышал. 😄</p>
+  </header>
+
+  <!-- Toggle -->
+  <div class="mode-switch" role="group" aria-label="Уровень подробности">
+    <button type="button" class="mode-switch__btn is-active" id="btnShort" aria-pressed="true">Коротко</button>
+    <button type="button" class="mode-switch__btn" id="btnDetailed" aria-pressed="false">Подробнее</button>
+  </div>
+
+  <!-- 2. БЫСТРЫЕ ФАКТЫ -->
+  <section class="section facts" aria-labelledby="factsTitle">
+    <h2 class="section__title" id="factsTitle">Быстрые факты</h2>
+    <ul class="facts__grid">
+      <li class="fact-card">
+        <span class="fact-card__icon" aria-hidden="true">🦻</span>
+        <span class="fact-card__label">Кохлеарный имплант</span>
+        <span class="fact-card__value">Cochlear Nucleus 7</span>
+      </li>
+      <li class="fact-card">
+        <span class="fact-card__icon" aria-hidden="true">📍</span>
+        <span class="fact-card__label">Ухо</span>
+        <span class="fact-card__value">Правое</span>
+      </li>
+      <li class="fact-card">
+        <span class="fact-card__icon" aria-hidden="true">👶</span>
+        <span class="fact-card__label">С 3 лет</span>
+        <span class="fact-card__value">Использую имплант с детства</span>
+      </li>
+      <li class="fact-card">
+        <span class="fact-card__icon" aria-hidden="true">🔇</span>
+        <span class="fact-card__label">Без процессора</span>
+        <span class="fact-card__value">Практически полная тишина</span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- 4. ПОЧЕМУ Я МОГУ НЕ ОТВЕТИТЬ -->
+  <section class="section why" aria-labelledby="whyTitle">
+    <h2 class="section__title sr-only" id="whyTitle">Почему я могу не ответить</h2>
+    <p class="why__line">Я могу вас <em>не игнорировать</em>.</p>
+    <p class="why__line why__line--accent">Я могу вас просто <em>не услышать</em>.</p>
+    <p class="why__sub">Особенно если вокруг шумно, человек говорит тихо, быстро или одновременно говорят несколько людей.</p>
+    <p class="why__joke">Так что если я не ответил с первого раза — попробуйте ещё раз 😄</p>
+  </section>
+
+  <!-- 5. КАК СО МНОЙ РАЗГОВАРИВАТЬ -->
+  <section class="section howto" aria-labelledby="howtoTitle">
+    <h2 class="section__title" id="howtoTitle">Как со мной разговаривать</h2>
+    <ul class="howto__list">
+      <li>Говорите обычным, понятным голосом.</li>
+      <li>Лучше смотреть на меня во время разговора.</li>
+      <li>Не нужно кричать.</li>
+      <li>Если я не понял — повторите или скажите другими словами.</li>
+      <li>В шумном месте может понадобиться говорить немного громче.</li>
+      <li>Если я переспросил — это нормально.</li>
+    </ul>
+  </section>
+
+  <!-- DETAILED-ONLY SECTIONS -->
+  <div class="detailed" id="detailed" hidden>
+
+    <!-- 3. КАК Я СЛЫШУ -->
+    <section class="section hearing" aria-labelledby="hearingTitle">
+      <h2 class="section__title" id="hearingTitle">Как я слышу</h2>
+      <p class="hearing__text">Без процессора я практически ничего не слышу. Даже очень громкий самолёт или поезд рядом я не слышу как звук — могу лишь почувствовать вибрации.</p>
+      <p class="hearing__text">С процессором я слышу окружающий мир, но не так, как слышащий человек.</p>
+
+      <div class="compare">
+        <div class="compare__panel">
+          <p class="compare__label">Без процессора</p>
+          <div class="waveform waveform--flat" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+          <p class="compare__caption">тишина / вибрации</p>
+        </div>
+        <div class="compare__panel compare__panel--active">
+          <p class="compare__label">С процессором</p>
+          <div class="waveform waveform--busy" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+          <p class="compare__caption">окружающие звуки / речь / шум</p>
+        </div>
       </div>
-    </div>
+
+      <p class="hearing__noise"><strong>Шум</strong> — самая большая проблема. Также мешают: тихая речь, быстрая речь, неразборчивая речь, несколько говорящих одновременно, эхо.</p>
+      <p class="disclaimer">Это упрощённое визуальное объяснение для обычного человека, а не точная медицинская модель моего слуха.</p>
+    </section>
+
+    <!-- 6. КАК РАБОТАЕТ ИМПЛАНТ -->
+    <section class="section how-it-works" aria-labelledby="hiwTitle">
+      <h2 class="section__title" id="hiwTitle">Как работает имплант</h2>
+      <ol class="flow">
+        <li class="flow__step"><span>Звук</span></li>
+        <li class="flow__step"><span>Микрофоны</span></li>
+        <li class="flow__step flow__step--device"><span>Cochlear Nucleus 7</span></li>
+        <li class="flow__step"><span>Катушка</span></li>
+        <li class="flow__step"><span>Внутренний имплант</span></li>
+        <li class="flow__step"><span>Слуховой нерв</span></li>
+        <li class="flow__step"><span>Мозг</span></li>
+      </ol>
+      <p class="how-it-works__text">Если объяснить очень просто: процессор улавливает звуки, обрабатывает их и передаёт информацию на внутреннюю часть кохлеарного импланта. Имплант стимулирует слуховой нерв электрическими сигналами, благодаря чему мозг получает информацию о звуках.</p>
+    </section>
+
+    <!-- 7. МОЙ COCHLEAR NUCLEUS 7 -->
+    <section class="section device" aria-labelledby="deviceTitle">
+      <h2 class="section__title" id="deviceTitle">Мой Cochlear Nucleus 7</h2>
+      <div class="device-card">
+        <figure class="photo photo--device" id="devicePhoto">
+          <img src="photo-device.jpg" alt="Речевой процессор Cochlear Nucleus 7" loading="lazy"
+               onerror="this.closest('.photo').classList.add('is-missing')">
+          <div class="photo__placeholder" aria-hidden="true">
+            <span class="photo__placeholder-icon">🦻</span>
+            <span class="photo__placeholder-text">photo-device.jpg</span>
+          </div>
+        </figure>
+        <dl class="device-card__list">
+          <div class="device-card__row"><dt>Устройство</dt><dd>Cochlear Nucleus 7</dd></div>
+          <div class="device-card__row"><dt>Тип</dt><dd>Кохлеарный имплант</dd></div>
+          <div class="device-card__row"><dt>Ухо</dt><dd>Правое</dd></div>
+          <div class="device-card__row"><dt>Bluetooth</dt><dd>Да, через совместимые устройства и программное обеспечение</dd></div>
+          <div class="device-card__row"><dt>Приложение</dt><dd>Используется для управления настройками</dd></div>
+          <div class="device-card__row"><dt>Компьютер</dt><dd>Прямого подключения к ноутбуку в моём случае нет</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- 8. БАТАРЕЯ -->
+    <section class="section battery" aria-labelledby="batteryTitle">
+      <h2 class="section__title" id="batteryTitle">Батарея</h2>
+      <p class="battery__quote">«Батарея — это буквально мой звук.»</p>
+      <p class="battery__text">Если аккумулятор разряжается → процессор выключается → я снова практически ничего не слышу.</p>
+      <ul class="battery__list">
+        <li><span>Большой</span><span>примерно 1–2 дня</span></li>
+        <li><span>Маленький</span><span>от нескольких часов</span></li>
+        <li><span>Специальный вариант</span><span>до нескольких дней</span></li>
+      </ul>
+      <p class="disclaimer">Это мой личный опыт использования, а не официальные технические характеристики устройства.</p>
+    </section>
+
+    <!-- 9. ВОДА -->
+    <section class="section water" aria-labelledby="waterTitle">
+      <h2 class="section__title" id="waterTitle">Вода</h2>
+      <p class="water__text">Вода — отдельная история. Процессор требует осторожности и не предназначен для обычного контакта с водой. Поэтому дождь, душ, бассейн и подобные ситуации требуют отдельного внимания.</p>
+    </section>
+
+    <!-- 10. FAQ -->
+    <section class="section faq" aria-labelledby="faqTitle">
+      <h2 class="section__title" id="faqTitle">Частые вопросы</h2>
+      <div class="faq__list">
+        <details class="faq__item">
+          <summary>Ты вообще слышишь?<span class="faq__chevron" aria-hidden="true"></span></summary>
+          <p>Да, с процессором я слышу окружающий мир — но не так, как слышащий человек.</p>
+        </details>
+        <details class="faq__item">
+          <summary>Что будет без процессора?<span class="faq__chevron" aria-hidden="true"></span></summary>
+          <p>Практически полная тишина. Очень громкие звуки я могу разве что почувствовать как вибрацию.</p>
+        </details>
+        <details class="faq__item">
+          <summary>Почему ты иногда не отвечаешь?<span class="faq__chevron" aria-hidden="true"></span></summary>
+          <p>Скорее всего, я просто не услышал — особенно в шуме или если говорили тихо.</p>
+        </details>
+        <details class="faq__item">
+          <summary>Нужно ли говорить громче?<span class="faq__chevron" aria-hidden="true"></span></summary>
+          <p>Кричать не нужно. Обычной понятной речи достаточно, в шумном месте — чуть громче.</p>
+        </details>
+        <details class="faq__item">
+          <summary>Почему ты смотришь на лицо?<span class="faq__chevron" aria-hidden="true"></span></summary>
+          <p>Так мне проще понимать речь — это помогает считывать её, даже если что-то не расслышал.</p>
+        </details>
+        <details class="faq__item">
+          <summary>Почему шум мешает?<span class="faq__chevron" aria-hidden="true"></span></summary>
+          <p>В шуме сложнее выделить речь среди остальных звуков — это самая большая трудность для меня.</p>
+        </details>
+        <details class="faq__item">
+          <summary>Можно ли разговаривать по телефону?<span class="faq__chevron" aria-hidden="true"></span></summary>
+          <p>Это сложнее, чем разговор вживую, но возможно — особенно в тихой обстановке.</p>
+        </details>
+        <details class="faq__item">
+          <summary>Что происходит, если села батарея?<span class="faq__chevron" aria-hidden="true"></span></summary>
+          <p>Процессор выключается, и я снова почти ничего не слышу, пока не заменю батарею.</p>
+        </details>
+        <details class="faq__item">
+          <summary>Можно ли мочить процессор?<span class="faq__chevron" aria-hidden="true"></span></summary>
+          <p>Нет, он требует осторожности и не предназначен для контакта с водой.</p>
+        </details>
+        <details class="faq__item">
+          <summary>Это обычный слуховой аппарат?<span class="faq__chevron" aria-hidden="true"></span></summary>
+          <p>Нет. Часть системы установлена внутри хирургически и работает иначе, чем обычный слуховой аппарат.</p>
+        </details>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- 11. ФИНАЛ -->
+  <section class="section outro" aria-labelledby="outroTitle">
+    <h2 class="section__title sr-only" id="outroTitle">Заключение</h2>
+    <p class="outro__text">Теперь вы знаете немного больше о том, как я слышу.</p>
+    <p class="outro__text">Если мы общаемся вживую и я что-то не расслышал — просто повторите. Всё нормально 🙂</p>
   </section>
 
-  <section class="section help" id="help" aria-labelledby="helpTitle">
-    <div class="section__inner">
-      <h2 class="section__title" id="helpTitle">Что мне помогает</h2>
-      <ul class="help__list">
-        <li class="help__item">
-          <svg class="help__orbit" viewBox="0 0 40 40" aria-hidden="true">
-            <circle class="help__orbit-path" cx="20" cy="20" r="16"/>
-          </svg>
-          <span>Текст вместо звука — сообщения, письма, заметки</span>
-        </li>
-        <li class="help__item">
-          <svg class="help__orbit" viewBox="0 0 40 40" aria-hidden="true">
-            <circle class="help__orbit-path" cx="20" cy="20" r="16"/>
-          </svg>
-          <span>Субтитры и расшифровки в видео и звонках</span>
-        </li>
-        <li class="help__item">
-          <svg class="help__orbit" viewBox="0 0 40 40" aria-hidden="true">
-            <circle class="help__orbit-path" cx="20" cy="20" r="16"/>
-          </svg>
-          <span>Хорошее освещение и взгляд собеседника — так проще читать по губам</span>
-        </li>
-        <li class="help__item">
-          <svg class="help__orbit" viewBox="0 0 40 40" aria-hidden="true">
-            <circle class="help__orbit-path" cx="20" cy="20" r="16"/>
-          </svg>
-          <span>Время без спешки, чтобы переспросить и уточнить</span>
-        </li>
-        <li class="help__item">
-          <svg class="help__orbit" viewBox="0 0 40 40" aria-hidden="true">
-            <circle class="help__orbit-path" cx="20" cy="20" r="16"/>
-          </svg>
-          <span>Письменное общение вместо звонков, когда это возможно</span>
-        </li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="section contact" id="contact" aria-labelledby="contactTitle">
-    <div class="contact__field" aria-hidden="true"></div>
-    <div class="section__inner">
-      <h2 class="section__title" id="contactTitle">Контакты</h2>
-      <p class="contact__lead">Пишите — это самый надёжный способ до меня достучаться.</p>
-      <ul class="contact__list">
-        <li>
-          <a class="contact__link" href="mailto:you@example.com">you@example.com</a>
-        </li>
-        <li>
-          <a class="contact__link" href="https://t.me/your_username" aria-label="Telegram: your_username">Telegram — @your_username</a>
-        </li>
-        <li>
-          <a class="contact__link" href="https://github.com/your-username" aria-label="GitHub: your-username">GitHub — your-username</a>
-        </li>
-      </ul>
+  <!-- QR badge note -->
+  <section class="section qr-note" aria-label="О бейдже">
+    <div class="qr-note__card">
+      <span class="qr-note__icon" aria-hidden="true">▢</span>
+      <p>Этот сайт открывается с моего QR-бейджа.</p>
     </div>
   </section>
 
 </main>
-
-<footer class="footer">
-  <p class="footer__text">Влад · страница обновляется без спешки</p>
-</footer>
 
 <script type="module" src="main.js"></script>
 </body>
