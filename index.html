@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>LunarK1ng — Digital ID</title>
+<meta name="description" content="Персональный Digital ID LunarK1ng — Владислава Умникова.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Перейти к содержимому</a>
+<canvas id="stars" aria-hidden="true"></canvas>
+
+<header><div class="wordmark"><span class="star-mark" aria-hidden="true"></span>LunarK1ng</div></header>
+
+<main id="main">
+
+<section class="hero">
+  <figure class="hero-media">
+    <img src="assets/images/portrait.jpg" width="900" height="900" loading="eager" alt="Владик на набережной ночью смотрит на стилизованную падающую звезду в небе">
+  </figure>
+  <p class="eyebrow">Personal Digital ID</p>
+  <h1>LunarK1ng</h1>
+  <p class="hero-line">Я слабослышащий. Полностью потерял слух с рождения — с 3 лет пользуюсь кохлеарным имплантом Cochlear Nucleus 7.</p>
+  <p class="hero-humor">Если я иногда не отвечаю — возможно, я просто не услышал 😄</p>
+  <a class="cta" href="#who">Кто вы? ↓</a>
+</section>
+
+<section id="who" aria-labelledby="who-h">
+  <h2 id="who-h">Кто вы?</h2>
+  <div class="cards" role="group" aria-label="Выбор профиля">
+    <button class="card" data-p="teacher" aria-pressed="false"><span class="icon">🎓</span><b>Преподаватель</b><small>Как лучше общаться со мной в учёбе</small></button>
+    <button class="card" data-p="student" aria-pressed="false"><span class="icon">👨‍🎓</span><b>Студент</b><small>Коротко о слухе и общении</small></button>
+    <button class="card" data-p="first" aria-pressed="false"><span class="icon">👋</span><b>Впервые здесь</b><small>Самое простое обо мне</small></button>
+    <button class="card" data-p="activist" aria-pressed="false"><span class="icon">⭐</span><b>Активист</b><small>Полный digital-профиль</small></button>
+  </div>
+</section>
+
+<div id="afterSelect" hidden>
+<section id="profile">
+  <button class="back" id="backBtn">← Изменить выбор</button>
+  <p class="profile-intro" id="profileIntro"></p>
+
+  <div class="detail-toggle" role="group" aria-label="Уровень подробности">
+    <button class="seg" data-d="short" aria-pressed="true">Коротко</button>
+    <button class="seg" data-d="more" aria-pressed="false">Подробнее</button>
+  </div>
+
+  <div class="facts">
+    <div class="fact"><span class="icon">🦻</span><b>Cochlear Nucleus 7</b><span>Мой кохлеарный имплант</span></div>
+    <div class="fact"><span class="icon">📍</span><b>Правое ухо</b><span>Куда установлен имплант</span></div>
+    <div class="fact"><span class="icon">👶</span><b>С 3 лет</b><span>Пользуюсь имплантом с детства</span></div>
+    <div class="fact"><span class="icon">🔇</span><b>Без процессора</b><span>Практически полная тишина</span></div>
+  </div>
+
+  <div class="compare">
+    <div><h4>Без процессора</h4>Тишина. Могу почувствовать только вибрации от очень громких звуков рядом.</div>
+    <div><h4>С процессором</h4>Слышу мир вокруг, но не так, как слышащий человек. Главная проблема — шум.</div>
+  </div>
+
+  <div class="block">
+    <h3>Почему я могу не ответить</h3>
+    <div class="callout">
+      <p>Я могу вас не игнорировать. Я могу вас просто не услышать.</p>
+      <p class="note">Особенно если вокруг шумно, кто-то говорит тихо, быстро или одновременно говорят несколько людей.</p>
+    </div>
+    <p class="note">Так что если я не ответил с первого раза — попробуйте ещё раз 😄</p>
+  </div>
+
+  <div class="block">
+    <h3>Как со мной разговаривать</h3>
+    <ul class="checklist">
+      <li>Говорите обычным, понятным голосом — кричать не нужно.</li>
+      <li>Лучше смотреть на меня во время разговора.</li>
+      <li>Если я не понял — повторите или скажите другими словами.</li>
+      <li>В шумном месте может понадобиться говорить чуть громче.</li>
+      <li>Если я переспросил — это нормально.</li>
+    </ul>
+  </div>
+
+  <div class="detail-more" hidden>
+    <div class="block">
+      <h3>Как это работает</h3>
+      <div class="flow" aria-hidden="true"><span>Звук</span><span>→</span><span>Микрофоны</span><span>→</span><span>Nucleus 7</span><span>→</span><span>Катушка</span><span>→</span><span>Имплант</span><span>→</span><span>Слуховой нерв</span><span>→</span><span>Мозг</span></div>
+      <p>Если очень просто: процессор улавливает звук, обрабатывает его и передаёт на внутреннюю часть импланта. Имплант стимулирует слуховой нерв электрическими сигналами, и мозг получает информацию о звуке.</p>
+      <p class="note">Это общее объяснение технологии, а не индивидуальная медицинская диагностика.</p>
+    </div>
+
+    <div class="block">
+      <h3>Мой Cochlear Nucleus 7</h3>
+      <img src="assets/images/device.jpg" width="900" height="675" loading="lazy" alt="Cochlear Nucleus 7 — левый и правый процессоры на тёмном фоне" style="width:100%;border-radius:var(--radius);border:1px solid var(--border);margin-bottom:.8rem">
+      <ul class="checklist" style="margin-top:0">
+        <li>Правое ухо</li>
+        <li>Bluetooth — да, через совместимые устройства и приложение</li>
+        <li>Приложение используется для управления настройками</li>
+        <li>Прямого подключения к ноутбуку в моём случае нет</li>
+      </ul>
+    </div>
+
+    <div class="block">
+      <h3>Батарея</h3>
+      <p><strong>Батарея — это буквально мой звук.</strong> Если она разряжается, процессор выключается, и я снова почти ничего не слышу.</p>
+      <p class="note">Мой личный опыт: большая батарея держит примерно 1–2 дня, маленькая — несколько часов, специальный вариант — до нескольких дней. Это не официальные характеристики устройства.</p>
+    </div>
+
+    <div class="block">
+      <h3>Вода</h3>
+      <p class="note">Процессор требует осторожности и не предназначен для обычного контакта с водой — дождь, душ, бассейн требуют отдельного внимания.</p>
+    </div>
+
+    <div class="block">
+      <h3>FAQ</h3>
+      <div id="faq"></div>
+    </div>
+  </div>
+</section>
+
+<section id="activist" hidden>
+  <h2>Обо мне — LunarK1ng Digital Profile</h2>
+  <p><strong>Владик / LunarK1ng</strong>, 19 лет</p>
+  <p>Необычный слабослышащий человек.</p>
+  <div class="callout">
+    <p>Что для меня важно: спокойствие, веселье и приключения.</p>
+    <p>Что меня отличает: я слабослышащий/глухой и владею РЖЯ.</p>
+  </div>
+  <p class="note">Если информация важная, лучше написать её и при необходимости напомнить ещё раз — воспринимать речь на слух мне иногда трудно 😅</p>
+  <p class="note">В глухом обществе меня иногда называют актёром / юмористическим клоуном 🙃</p>
+
+  <div class="block">
+    <h3>Мои направления</h3>
+    <ul class="dir-list">
+      <li><b>📸 СМИ / фотография</b><span>Интересуюсь фотографией и медиа примерно с 12–13 лет.</span></li>
+      <li><b>🎮 Киберспорт / gaming</b><span>Играю с 7 лет: Counter-Strike 2, Call of Duty: Warzone, Minecraft.</span></li>
+      <li><b>🎵 Музыка (раньше)</b><span>Участвовал в жестовых песнях, пантомиме и сценических выступлениях.</span></li>
+      <li><b>💻 Web / Digital</b><span>HTML, CSS, немного JavaScript. Выкладываю проекты на GitHub.</span></li>
+      <li><b>🎬 Монтаж</b><span>Обработка фото и видеомонтаж.</span></li>
+      <li><b>🧊 3D</b><span>Иногда работаю в Blender — сейчас редко из-за возможностей ноутбука.</span></li>
+    </ul>
+  </div>
+
+  <div class="block">
+    <h3>Навыки</h3>
+    <div class="chips">
+      <span class="chip">Фотография</span><span class="chip">Обработка фото</span><span class="chip">Веб-дизайн</span>
+      <span class="chip">HTML/CSS</span><span class="chip">JS (базово)</span><span class="chip">Видеомонтаж</span>
+      <span class="chip">Photoshop</span><span class="chip">After Effects</span><span class="chip">Blender</span>
+    </div>
+    <p class="note">Умею программировать, использую ИИ как инструмент для ускорения работы.</p>
+  </div>
+
+  <div class="block">
+    <div class="achieve">🏆 <strong>Абилимпикс</strong><br>Компетенция — Веб-дизайн. Участвую каждый год.</div>
+  </div>
+
+  <div class="block">
+    <p>Мне интересно пробовать себя в новых направлениях и раскрывать свои навыки. Если у тебя есть интересный проект или идея — возможно, нам есть что придумать вместе 🙂</p>
+    <p class="note">Часто бываю в Санкт-Петербурге, Москве и Белгороде.</p>
+  </div>
+
+  <div class="block" id="portfolioBlock">
+    <h3>Портфолио</h3>
+    <div id="portfolioContent"></div>
+  </div>
+
+  <p><a href="https://github.com/VladislavUmnikov" style="color:var(--cyan)">GitHub →</a></p>
+</section>
+
+<section>
+  <h2>Мои Telegram</h2>
+  <div class="tg-cards" id="tgCards"></div>
+</section>
+</div>
+
+<section class="final">
+  <h2>Где меня найти</h2>
+  <div class="final-links">
+    <a id="finalMain" href="#">Основной канал</a>
+    <a id="finalPersonal" href="#">Личный канал</a>
+  </div>
+  <p>Теперь вы знаете немного больше обо мне.</p>
+  <p class="note">Если мы общаемся вживую и я что-то не расслышал — просто повторите. Всё нормально 🙂</p>
+</section>
+
+</main>
+
+<footer>LunarK1ng · Digital ID · личный проект, не официальный документ</footer>
+
+<script type="module" src="js/cosmic-background.js"></script>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
